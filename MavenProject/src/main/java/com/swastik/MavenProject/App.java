@@ -1,7 +1,11 @@
 package com.swastik.MavenProject;
 
 import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.BeanFactory;   
+import org.springframework.core.io.ClassPathResource;  
+import org.springframework.core.io.Resource;
 
 /**
  * Hello world!
@@ -15,10 +19,9 @@ public class App
     	
     	Vehicle car = new Car();
     	
-    	ApplicationContext context = new ClassPathXmlApplicationContext();
+    	ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring.xml");
     	
-    	Vehicle obj1 = (Vehicle)context.getBean("vehicle");
-
+    	Vehicle obj1 = (Vehicle)context.getBean("abc");
     	
     	car.drive();
     	
