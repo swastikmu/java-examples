@@ -1,0 +1,60 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+//this below annotation is used as it tells the spring we need object of Alien class when invoke from context.
+
+@Component
+//@Scope(value="prototype")
+public class Alien {
+	private int aid;
+	private String aname;
+	private String tech;
+	@Autowired
+	private Laptop laptop1;
+	
+	
+	
+	public Alien() {
+		super();
+		System.out.println("Object Created");
+		//by default sprint boot use singleton design pattern. so even if you create object twice the constructor will
+		//execute only once. If you use @scope("prototype") annotation then it will only create object when you require
+		//else even you do  no task like comment object creation code it will create object.
+		
+	}
+	public int getAid() {
+		return aid;
+	}
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
+	public String getAname() {
+		return aname;
+	}
+	public void setAname(String aname) {
+		this.aname = aname;
+	}
+	public String getTech() {
+		return tech;
+	}
+	public void setTech(String tech) {
+		this.tech = tech;
+	}
+	
+	public Laptop getLaptop() {
+		return laptop1;
+	}
+	public void setLaptop(Laptop laptop) {
+		this.laptop1 = laptop;
+	}
+	void show() {
+		System.out.println("In Show");
+		laptop1.compile();
+	}
+	
+
+}
